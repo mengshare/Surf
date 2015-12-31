@@ -19,7 +19,7 @@ iOS9+ Network extension framework
 * udp 转发支持，如果有RR 
 * udp 直连支持？dstPort >= 16384 &&  dstPort <= 16386
 * tcp/http(s) proxy处理
-* connector：ss，http，socks5，direct
+* connector：TT，http，socks5，direct
 * log view，log send
 * rule 测试结果
 * 最近链接
