@@ -29,19 +29,20 @@ iOS9+ Network extension framework
 15 config use json 
 
 ### todo list ####
-* ~~ config file generate, opensource ~~
-* http -> direct (http )~~
-* http -> direct (https,test)
-* ~~http -> direct (tcp,don't need') ~~
+*  ~~ config file generate, opensource ~~
+*  ~~ CONNECT mode implement 0105 ~~
+*  ~~http -> direct ~~
+*  ~~https -> direct (0105,tested)~~
+*  ~~http -> direct (tcp,don't need') ~~
 *  http over TT (http)
-*  http over TT (https)
+*  https over TT (https)
 *  http over http (http)
-*  http over http (https)
+*  https over http (https)
 *  http over socks5 (http)
-*  http over socks5 (https)
-* ~~tcp -> direct (http )~~
-* tcp -> direct (https,test failure )
-* tcp -> direct (tcp,test)
+*  https over socks5 (https)
+*  ~~tcp -> direct (http )~~
+*  tcp -> direct (https,test failure )
+*  tcp -> direct (tcp,test)
 *  tcp -> direct (tcp ssl,test)
 *  tcp over TT
 *  tcp over http(s)
