@@ -29,11 +29,11 @@ iOS9+ Network extension framework
 15 config use json 
 
 ### todo list ####
-*  ~~ config file generate, opensource ~~
-*  ~~ CONNECT mode implement 0105 ~~
-*  ~~http -> direct ~~
+*  ~~config file generate, opensource~~
+*  ~~CONNECT mode implement 0105~~
+*  ~~http -> direct~~
 *  ~~https -> direct (0105,tested)~~
-*  ~~http -> direct (tcp,don't need') ~~
+*  ~~http -> direct (tcp,don't need')~~
 *  http over TT (http)
 *  https over TT (https)
 *  http over http (http)
