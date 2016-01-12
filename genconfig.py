@@ -12,7 +12,7 @@ DOMAINKEYWORD = {}
 DOMAINSUFFIX = {}
 IPCIDR = {}
 Hosts = {}
-
+Agent = {}
 def fread(file):
 	dict = {}
 	i = 0 
@@ -106,6 +106,13 @@ def fread(file):
 					print e
 				
 				IPCIDR[k[1]] = rule
+			elif re.match('USER-AGENT',line):
+				k  = line.split(',')
+				#k.remove(k[0])
+				#r = ', '.join([str(x) for x in k]) 
+				rule = {}
+				rule["Proxy"] = k[2].strip()				
+				Agent[k[1]] = rule
 			else:
 				#this section shoud Hosts
 				k  = line.split(' ')
@@ -127,6 +134,7 @@ def fread(file):
 	Rule["DOMAIN-KEYWORD"] = DOMAINKEYWORD
 	Rule["DOMAIN-SUFFIX"] = DOMAINSUFFIX
 	Rule["IP-CIDR"] = IPCIDR
+	Rule["USER-AGENT"] = Agent
 	#print Rule
 	print "cool"
 	config["General"] = General
@@ -148,7 +156,8 @@ def saveRuslt():
 	f.close()
 if __name__ == '__main__':
 	if len(sys.argv) == 1:
-		print "add surge file path"
+		print "add surge config file path"
+		exit()
 	surgeconfig = sys.argv[1]
 	print surgeconfig
 	file = open(surgeconfig)
