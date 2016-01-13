@@ -9,7 +9,8 @@ iOS9+ Network extension framework
 * Swift 3part lib: SwiftJson 
 
 ###user features and imp####
- 
+
+* support User-Agent base rule 
 * dns server 指定，如果没有使用system resolv
 * /etc/host类似 支持，访问私有服务iOS
 * rule ip/mask，ProxyName/Reject/Random
