@@ -119,8 +119,8 @@ def fread(file):
 	#print dict
 	print "[General]"
 	print General
-	General["author"] = "yarshure"
-	General["commnet"] = "这是comment"
+	General["author"] = "surfing"
+	General["commnet"] = "this is comment"
 	print "[Proxy]"
 	print Proxy
 	print "[Rule]"
