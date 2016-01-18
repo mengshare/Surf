@@ -13,6 +13,7 @@ DOMAINSUFFIX = {}
 IPCIDR = {}
 Hosts = {}
 Agent = {}
+GEOIP = {}
 def fread(file):
 	dict = {}
 	i = 0 
@@ -113,6 +114,21 @@ def fread(file):
 				rule = {}
 				rule["Proxy"] = k[2].strip()				
 				Agent[k[1]] = rule
+			elif re.match('GEOIP',line):
+				k  = line.split(',')
+				#k.remove(k[0])
+				#r = ', '.join([str(x) for x in k]) 
+				rule = {}
+				rule["Proxy"] = k[2].strip()				
+				GEOIP[k[1]] = rule
+			elif re.match('FINAL',line):
+				k  = line.split(',')
+				#k.remove(k[0])
+				#r = ', '.join([str(x) for x in k]) 
+				#rule = {}
+				#rule["Proxy"] = k[2].strip()				
+				#GEOIP[k[1]] = rule
+				Rule["FINAL"] = k[1].strip()
 			else:
 				#this section shoud Hosts
 				k  = line.split(' ')
@@ -135,12 +151,17 @@ def fread(file):
 	Rule["DOMAIN-SUFFIX"] = DOMAINSUFFIX
 	Rule["IP-CIDR"] = IPCIDR
 	Rule["USER-AGENT"] = Agent
+	Rule["GEOIP"] = GEOIP
 	#print Rule
 	print "cool"
-	config["General"] = General
-	config["Proxy"] = Proxy
-	config["Rule"] = Rule
+
 	config["Hosts"] = Hosts
+	config["Rule"] = Rule
+	config["Proxy"] = Proxy
+	config["General"] = General
+	
+	
+	
 	saveRuslt()
 	# print "[DOMAINKEYWORD]"
 	# print DOMAINKEYWORD
