@@ -63,12 +63,12 @@ def fread(file):
 					hostconfig['method'] =  x[3].strip()
 					hostconfig['passwd'] =  x[4].strip()
 					#hostconfig['xx'] =  x[5]
-					dict[list[0]] = hostconfig
+					dict[list[0].strip()] = hostconfig
 				else:
 					print line
-					dict[list[0]] =  [str(j).strip() for j in x]
+					dict[list[0].strip()] =  [str(j).strip() for j in x]
 			else:
-				dict[list[0]] = str(list[1]).strip()
+				dict[list[0].strip()] = str(list[1]).strip()
 			
 		else:
 			if re.match('DOMAIN-KEYWORD',line):
@@ -82,7 +82,7 @@ def fread(file):
 				except Exception, e:
 					print e
 				
-				DOMAINKEYWORD[k[1]] = rule 
+				DOMAINKEYWORD[k[1].strip()] = rule 
 			elif re.match('DOMAIN-SUFFIX',line):
 				k  = line.split(',')
 				#k.remove(k[0])
@@ -94,7 +94,7 @@ def fread(file):
 				except Exception, e:
 					print e
 				
-				DOMAINSUFFIX[k[1]] = rule
+				DOMAINSUFFIX[k[1].strip()] = rule
 			elif re.match('IP-CIDR',line):
 				k  = line.split(',')
 				#k.remove(k[0])
@@ -106,14 +106,14 @@ def fread(file):
 				except Exception, e:
 					print e
 				
-				IPCIDR[k[1]] = rule
+				IPCIDR[k[1].strip()] = rule
 			elif re.match('USER-AGENT',line):
 				k  = line.split(',')
 				#k.remove(k[0])
 				#r = ', '.join([str(x) for x in k]) 
 				rule = {}
 				rule["Proxy"] = k[2].strip()				
-				Agent[k[1]] = rule
+				Agent[k[1].strip()] = rule
 			elif re.match('GEOIP',line):
 				k  = line.split(',')
 				#k.remove(k[0])
@@ -136,7 +136,7 @@ def fread(file):
 					ip = k[0]
 					for index in range(1,len(k)):
 						host = k[index]
-						Hosts[host] = ip
+						Hosts[host] = ip.strip()
 				else:
 					print "host format error"	
 	#print dict
