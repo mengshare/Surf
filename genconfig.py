@@ -4,6 +4,7 @@
 import json
 import sys
 import re
+import os
 config = {}
 General = {}
 Proxy = {}
@@ -14,7 +15,7 @@ IPCIDR = {}
 Hosts = {}
 Agent = {}
 GEOIP = {}
-def fread(file):
+def convert(file):
 	dict = {}
 	i = 0 
 	for line in file:
@@ -162,17 +163,17 @@ def fread(file):
 	
 	
 	
-	saveRuslt()
+	#saveRuslt()
 	# print "[DOMAINKEYWORD]"
 	# print DOMAINKEYWORD
 	# print "[DOMAINSUFFIX]"
 	# print DOMAINSUFFIX
 	# print "[IPCIDR]"
 	# print IPCIDR
-def saveRuslt():
+def saveRuslt(name):
 	#print config
 	s = json.dumps(config)
-	f = open("surf.conf","w")
+	f = open(name,"w")
 	f.write(s)
 	f.close()
 if __name__ == '__main__':
@@ -181,6 +182,11 @@ if __name__ == '__main__':
 		exit()
 	surgeconfig = sys.argv[1]
 	print surgeconfig
+	#paths = os.path.split(surgeconfig)
+	fname = os.path.basename(surgeconfig)
+	name = fname.split('.')[0]
+	dest = os.path.dirname(surgeconfig) + name + '.json'
 	file = open(surgeconfig)
-	fread(file)
+	convert(file)
+	saveRuslt(dest)
 	file.close() 
