@@ -96,6 +96,18 @@ def convert(file):
 					print e
 				
 				DOMAINSUFFIX[k[1].strip()] = rule
+			elif re.match('DOMAIN',line):
+				k  = line.split(',')
+				#k.remove(k[0])
+				#r = ', '.join([str(x) for x in k]) 
+				rule = {}
+				rule["Proxy"] = k[2].strip()
+				try:
+					rule["force-remote-dns"] = k[3].strip()
+				except Exception, e:
+					print e
+				
+				DOMAINSUFFIX[k[1].strip()] = rule
 			elif re.match('IP-CIDR',line):
 				k  = line.split(',')
 				#k.remove(k[0])
