@@ -78,10 +78,12 @@ def convert(file):
 				#r = ', '.join([str(x) for x in k]) 
 				rule = {}
 				rule["Proxy"] = k[2].strip()
-				try:
+				if len(k) > 3:
 					rule["force-remote-dns"] = k[3].strip()
-				except Exception, e:
-					print e
+				# try:
+				# 	rule["force-remote-dns"] = k[3].strip()
+				# except Exception, e:
+				# 	print e
 				
 				DOMAINKEYWORD[k[1].strip()] = rule 
 			elif re.match('DOMAIN-SUFFIX',line):
@@ -90,10 +92,12 @@ def convert(file):
 				#r = ', '.join([str(x) for x in k]) 
 				rule = {}
 				rule["Proxy"] = k[2].strip()
-				try:
+				if len(k) > 3:
 					rule["force-remote-dns"] = k[3].strip()
-				except Exception, e:
-					print e
+				# try:
+				# 	rule["force-remote-dns"] = k[3].strip()
+				# except Exception, e:
+				# 	print e
 				
 				DOMAINSUFFIX[k[1].strip()] = rule
 			elif re.match('DOMAIN',line):
@@ -102,10 +106,12 @@ def convert(file):
 				#r = ', '.join([str(x) for x in k]) 
 				rule = {}
 				rule["Proxy"] = k[2].strip()
-				try:
+				if len(k) > 3:
 					rule["force-remote-dns"] = k[3].strip()
-				except Exception, e:
-					print e
+				# try:
+				# 	rule["force-remote-dns"] = k[3].strip()
+				# except Exception, e:
+				# 	print e
 				
 				DOMAINSUFFIX[k[1].strip()] = rule
 			elif re.match('IP-CIDR',line):
@@ -114,10 +120,12 @@ def convert(file):
 				#r = ', '.join([str(x) for x in k]) 
 				rule = {}
 				rule["Proxy"] = k[2].strip()
-				try:
+				if len(k) > 3:
 					rule["no-resolve"] = k[3].strip()
-				except Exception, e:
-					print e
+				# try:
+				# 	rule["no-resolve"] = k[3].strip()
+				# except Exception, e:
+				# 	print e
 				
 				IPCIDR[k[1].strip()] = rule
 			elif re.match('USER-AGENT',line):
