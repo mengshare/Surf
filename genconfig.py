@@ -57,7 +57,11 @@ def convert(file):
 			print "Found General"
 			dict = General
 			continue
-		elif re.match('\[Hosts\]', line):
+		elif re.match('\[Hosts\]', line): 
+			print "Found Hosts"
+			dict = Hosts
+			continue
+		elif re.match('\[Host\]', line): 
 			print "Found Hosts"
 			dict = Hosts
 			continue
@@ -247,12 +251,13 @@ def download():
  		webFile = urllib.urlopen(u)
  		localFile = open(fn, 'w')
  		localFile.write(webFile.read())
- 		localFile.write(hosx)
+ 		#localFile.write(hosx)
  		webFile.close()
  		localFile.close()
  		fp = os.getcwd() + "/" + fn
  		print "process " + fp
  		process(fp,key)
+
 if __name__ == '__main__':
 	download()
 	exit()
