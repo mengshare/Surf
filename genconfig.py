@@ -107,7 +107,8 @@ def convert(file):
 				rule = {}
 				rule["Proxy"] = k[2].strip()
 				if len(k) > 3:
-					rule["force-remote-dns"] = k[3].strip()
+					#rule["force-remote-dns"] = k[3].strip()
+					print  "don't need force-remote-dns"
 				# try:
 				# 	rule["force-remote-dns"] = k[3].strip()
 				# except Exception, e:
@@ -121,7 +122,8 @@ def convert(file):
 				rule = {}
 				rule["Proxy"] = k[2].strip()
 				if len(k) > 3:
-					rule["force-remote-dns"] = k[3].strip()
+					#rule["force-remote-dns"] = k[3].strip()
+					print  "don't need force-remote-dns"
 				# try:
 				# 	rule["force-remote-dns"] = k[3].strip()
 				# except Exception, e:
@@ -135,7 +137,8 @@ def convert(file):
 				rule = {}
 				rule["Proxy"] = k[2].strip()
 				if len(k) > 3:
-					rule["force-remote-dns"] = k[3].strip()
+					#rule["force-remote-dns"] = k[3].strip()
+					print  "don't need force-remote-dns"
 				# try:
 				# 	rule["force-remote-dns"] = k[3].strip()
 				# except Exception, e:
@@ -241,20 +244,21 @@ def process(surgeconfig,name):
 def download():
 	#dir = pwd
 	for key in urls:
-		u =  urls[key]#url.split("/")[-1]
+		u =  urls[key] #url.split("/")[-1]
+		fx = u.split("/")[-1]
 		fn = "download/" + key + ".conf"#//u.split("/")[-1]
 		print "downloading    " + u + " to "  + fn
  		#urllib.urlretrieve (u, fn)
  		#print hosx.split("\n")
  		#exit()
 
- 		webFile = urllib.urlopen(u)
- 		localFile = open(fn, 'w')
- 		localFile.write(webFile.read())
- 		#localFile.write(hosx)
- 		webFile.close()
- 		localFile.close()
- 		fp = os.getcwd() + "/" + fn
+ 		# webFile = urllib.urlopen(u)
+ 		# localFile = open(fn, 'w')
+ 		# localFile.write(webFile.read())
+ 		# #localFile.write(hosx)
+ 		# webFile.close()
+ 		# localFile.close()
+ 		fp = os.getcwd() + "/download/" + fx
  		print "process " + fp
  		process(fp,key)
 
